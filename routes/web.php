@@ -1,11 +1,12 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\http\Controllers\FromController;
+use App\http\Controllers\SessionController;
 
 Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/form-create',[FromController::class,'formcreate']);
-Route::post('/form-submit',[FromController::class,'formsubmit'])->name('form-submit');
+Route::get('/session/get',[SessionController::class,'getSessionData']);
+Route::get('/session/store',[SessionController::class,'storeSessionData']);
+Route::get('/session/destroy',[SessionController::class,'destroySessionData']);
